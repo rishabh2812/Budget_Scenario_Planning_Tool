@@ -1,0 +1,32 @@
+# ─────────────────────────────────────────────────────────────────────────────
+#  MMM Budget Optimizer — requirements.txt
+#  For Streamlit Cloud deployment
+# ─────────────────────────────────────────────────────────────────────────────
+
+# ── Core framework ────────────────────────────────────────────────────────────
+# Minimum 1.46.0 required for:
+#   - width='stretch' on st.button / st.plotly_chart / st.dataframe
+#   - st.rerun() (replaces deprecated st.experimental_rerun)
+#   - st.chat_input() with key= argument
+#   - st.chat_message()
+streamlit>=1.46.0
+
+# ── Charts (CRITICAL — most common reason charts don't render) ────────────────
+# Plotly 5.x is stable and well-tested with Streamlit
+# Plotly 6.x introduced breaking changes — pin to 5.x for reliability
+plotly>=5.18.0,<6.0.0
+
+# ── Data ─────────────────────────────────────────────────────────────────────
+pandas>=2.0.0
+numpy>=1.24.0
+
+# ── Optimization engines ──────────────────────────────────────────────────────
+# GEKKO requires a C compiler on the host (see packages.txt)
+gekko>=1.0.6
+scipy>=1.10.0
+
+# ── AI providers ─────────────────────────────────────────────────────────────
+# Claude via Vertex AI — anthropic[vertex] bundles the google-auth transport
+anthropic[vertex]>=0.39.0
+google-auth>=2.23.0
+requests>=2.28.0
